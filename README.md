@@ -9,37 +9,29 @@ This script is made to work with Linux, Windows and MacOS running bash >= 3.
 After running the script all available devices with their specs are displayed on the console:<br />
 each device is associated to a number; just enter the number of the device you want to run and the emulator will automatically start.
 <br />
-By default the paths inside the script contain wildcard charaters to make it work on all machines without editing the script if Android Studio and Java are installed on the default folder.<br />
-To make the script faster just replace the wildcard with your username and remove ```eval``` commands.<br />
-You may need to change the BASE_URL, JAVA_HOME and ANDROID_HOME variables if Java SDK and Android Studio are installed on a custom folder; you can also remove the exports if you have already set these variables in your PATH.<br />
-You can customize the variables according to your operating system editing the script on these lines:
+To run the script you need to set some variables editing the following lines:
 ```sh
-# msys identifies Windows OS
-if [[ "$OSTYPE" == "msys"* ]]; then
-  BASE_URL="C:/Users/*/AppData/Local/"
-  BAT_EXTENSION=".bat"
-  OS_EMULATOR_PATH=".exe"
-  export JAVA_HOME="C:/Program Files/Java/jdk1.8.0_171"
-  export ANDROID_HOME="C:/Users/*/AppData/Local/Android/sdk"
-  
-# darwin identifies MacOS
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-  BASE_URL="/Users/*/Library/"
-  OS_EMULATOR_PATH="/emulator"
-  export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home"
-  export ANDROID_HOME="/Users/lorenzo/Library/Android/sdk"
-  
-# Linux OS
-else
-  BASE_URL="/root/"
-  export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
-  export ANDROID_AVD_HOME="/root/.android/avd"
-fi
+# Put in LIST_AVD variable the path to the avdmanager script located inside */Android/Sdk/tools/bin
+# Include the extension(.bat) in Windows
+LIST_AVD="AVDMANAGER_PATH"
+
+# Put in RUN_AVD variable the path to the emulator script located inside */Android/Sdk/tools
+# Include the extension(.exe) in Windows
+RUN_AVD="EMULATOR_PATH"
+
+# Put in JAVA_HOME variable the path to the Java SDK
+export JAVA_HOME="JAVA_JDK_PATH"
+
+# Put in ANDROID_HOME variable the path to the Android Studio SDK(for Windows and MacOS)
+export ANDROID_HOME="ANDROID_STUDIO_SDK_PATH"
+# Put here the path to the Android Studio SDK(for Linux) .ini files of emulator
+export ANDROID_AVD_HOME="ANDROID_STUDIO_SDK_PATH_LINUX"
 ```
 
 Considering that:
 
-- <b>BASE_URL</b> is the folder that contains the Android folder,
+- <b>LIST_AVD</b> is the path to the avdmanager file(include extension in Windows, .bat),
+- <b>RUN_AVD</b> is the path to the emulator(include extension in Windows, .exe), 
 - <b>JAVA_HOME</b> is the path to the java SDK,
 - <b>ANDROID_HOME</b> or <b>ANDROID_AVD_HOME</b> is the path to the Android SDK.
 

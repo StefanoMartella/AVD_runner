@@ -1,36 +1,41 @@
 #!/bin/bash
 
-# msys identifies Windows OS
-if [[ "$OSTYPE" == "msys"* ]]; then
-  BASE_URL="C:/Users/*/AppData/Local/"
-  BAT_EXTENSION=".bat"
-  OS_EMULATOR_PATH=".exe"
-  export JAVA_HOME="C:/Program Files/Java/jdk1.8.0_171"
-  export ANDROID_HOME="C:/Users/*/AppData/Local/Android/sdk"
-# darwin identifies MacOS
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-  BASE_URL="/Users/*/Library/"
-  OS_EMULATOR_PATH="/emulator"
-  export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home"
-  export ANDROID_HOME="/Users/lorenzo/Library/Android/sdk"
-# Linux OS
-else
-  BASE_URL="/root/"
-  export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
-  export ANDROID_AVD_HOME="/root/.android/avd"
-fi
 
-echo -e "\n"
+#######################
+#  Setting variables  #
+#######################
 
-# Retrieve all available devices with their specs
-devices_specs="$(eval "$BASE_URL"Android/Sdk/tools/bin/avdmanager"$BAT_EXTENSION" list avd |
-               sed '/Android Virtual Devices:/d')"
+# Put in LIST_AVD variable the path to the avdmanager script located inside */Android/Sdk/tools/bin
+# Include the extension(.bat) in Windows
+LIST_AVD="AVDMANAGER_PATH"
+
+# Put in RUN_AVD variable the path to the emulator script located inside */Android/Sdk/tools
+# Include the extension(.exe) in Windows
+RUN_AVD="EMULATOR_PATH"
+
+# Put in JAVA_HOME variable the path to the Java SDK
+export JAVA_HOME="JAVA_JDK_PATH"
+
+# Put in ANDROID_HOME variable the path to the Android Studio SDK(for Windows and MacOS)
+export ANDROID_HOME="ANDROID_STUDIO_SDK_PATH"
+# Put here the path to the Android Studio SDK(for Linux) .ini files of emulator
+export ANDROID_AVD_HOME="ANDROID_STUDIO_SDK_PATH_LINUX"
+
+
+#######################
+#     Script core     #
+#######################
+
+printf "\n"
+
+# Retrieve all available devices with their specs and list them
+devices_specs="$($LIST_AVD list avd | sed '/Android Virtual Devices:/d')"
 
 # Quoting (") does matter to preserve multi-line values
 # Print all available devices
 echo "$devices_specs"
 
-echo -e "\n"
+printf "\n"
 
 device_number=0
 
@@ -49,7 +54,7 @@ do
   ((device_number++))
 done <<< "$devices_name"
 
-echo -e "\n"
+printf "\n"
 
 # Waiting for device choice
 read  -p "Choose a device and insert its number:" device_number_choice
@@ -66,4 +71,4 @@ do
 done
 
 # Run emulator according to the choice and let the bash in background
-eval "$BASE_URL"Android/Sdk/tools/emulator"$OS_EMULATOR_PATH" -avd "${devices_list[$device_number_choice]}" &
+$RUN_AVD -avd "${devices_list[$device_number_choice]}" &
