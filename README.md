@@ -24,7 +24,7 @@ export JAVA_HOME="JAVA_JDK_PATH"
 
 # Put in ANDROID_HOME variable the path to the Android Studio SDK(for Windows and MacOS)
 export ANDROID_HOME="ANDROID_STUDIO_SDK_PATH"
-# Put here the path to the Android Studio SDK(for Linux) .ini files of emulator
+# Put in ANDROID_AVD_HOME variable the path to the Android Studio SDK(for Linux) .ini files of emulator
 export ANDROID_AVD_HOME="ANDROID_STUDIO_SDK_PATH_LINUX"
 ```
 
