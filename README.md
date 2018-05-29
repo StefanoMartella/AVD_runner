@@ -5,7 +5,7 @@ This script is made to work with Linux, Windows and MacOS running bash >= 3.
 ## Prerequisites
  - Git bash(Windows)
  
-## Functionalities
+## Functionalities and Setup
 After running the script all available devices with their specs are displayed on the console:<br />
 each device is associated to a number; just enter the number of the device you want to run and the emulator will automatically start.
 <br />
