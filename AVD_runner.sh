@@ -1,9 +1,29 @@
-#!/usr/bin/bash
+#!/bin/bash
+
+# msys identifies Windows OS
+if [[ "$OSTYPE" == "msys"* ]]; then
+  BASE_URL="C:/Users/*/AppData/Local/"
+  BAT_EXTENSION=".bat"
+  OS_EMULATOR_PATH=".exe"
+  export JAVA_HOME="C:/Program Files/Java/jdk1.8.0_171"
+  export ANDROID_HOME="C:/Users/*/AppData/Local/Android/sdk"
+# darwin identifies MacOS
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  BASE_URL="/Users/*/Library/"
+  OS_EMULATOR_PATH="/emulator"
+  export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home"
+  export ANDROID_HOME="/Users/lorenzo/Library/Android/sdk"
+# Linux OS
+else
+  BASE_URL="/root/"
+  export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
+  export ANDROID_AVD_HOME="/root/.android/avd"
+fi
 
 echo -e "\n"
 
 # Retrieve all available devices with their specs
-devices_specs="$(C:/Users/*/AppData/Local/Android/Sdk/tools/bin/avdmanager.bat list avd |
+devices_specs="$(eval "$BASE_URL"Android/Sdk/tools/bin/avdmanager"$BAT_EXTENSION" list avd |
                sed '/Android Virtual Devices:/d')"
 
 # Quoting (") does matter to preserve multi-line values
@@ -18,7 +38,7 @@ device_number=0
 devices_name="$(echo "$devices_specs" | grep 'Name: ')"
 
 # Map of the type {device_number: device_name}
-declare -A devices_list
+devices_list=()
 
 # Put in a map the device number and its name
 while read -r line
@@ -46,4 +66,4 @@ do
 done
 
 # Run emulator according to the choice and let the bash in background
-C:/Users/*/AppData/Local/Android/Sdk/tools/emulator.exe -avd "${devices_list[$device_number_choice]}" &
+eval "$BASE_URL"Android/Sdk/tools/emulator"$OS_EMULATOR_PATH" -avd "${devices_list[$device_number_choice]}" &
