@@ -32,7 +32,7 @@ RUN_AVD="EMULATOR_PATH"
 
 # For Linux:
 # Put in ANDROID_AVD_HOME variable the path to the
-# Android Studio SDK) .ini files of emulator
+# Android Studio SDK .ini files of emulator
 #export ANDROID_AVD_HOME="ANDROID_STUDIO_SDK_PATH_LINUX"
 
 
