@@ -21,7 +21,7 @@ RUN_AVD="EMULATOR_PATH"
 ```
 
 If you don't have JAVA_HOME, ANDROID_HOME(Windows and MacOS) or ANDROID_AVD_HOME(Linux)
-in your PATH variable you need to set the following variables:  
+in your environment variables you need to set the following variables:  
 
 ```sh
 # Put in JAVA_HOME variable the path to the Java SDK

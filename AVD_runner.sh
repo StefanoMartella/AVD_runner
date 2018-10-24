@@ -12,16 +12,17 @@ LIST_AVD="AVDMANAGER_PATH"
 # Include the extension(.exe) in Windows.
 RUN_AVD="EMULATOR_PATH"
 
-########################################################################
-#                                                                      #
-#     If you don't have JAVA_HOME, ANDROID_HOME(Windows and MacOS)     #
-#                                                                      #
-#     or ANDROID_AVD_HOME(Linux) in your PATH variable you need to     #
-#                                                                      #
-#            uncomment the following export instructions:              #
-#                                                                      #
-########################################################################
+##########################################################################
+#                                                                        #
+#     If you don't have JAVA_HOME, ANDROID_HOME(Windows and MacOS)       #
+#                                                                        #
+#  or ANDROID_AVD_HOME(Linux) in your environment variables you need to  #
+#                                                                        #
+#            uncomment the following export instructions:                #
+#                                                                        #
+##########################################################################
 
+# For Windows, MacOS and Linux:
 # Put in JAVA_HOME variable the path to the Java SDK
 #export JAVA_HOME="JAVA_JDK_PATH"
 
