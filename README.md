@@ -74,8 +74,7 @@ export JAVA_HOME="JAVA_JDK_PATH"
 export ANDROID_HOME="ANDROID_STUDIO_SDK_PATH"
 
 # For Linux:
-# Put in ANDROID_AVD_HOME variable the path to the
-# Android Studio SDK .ini files of emulator
+# Put in ANDROID_AVD_HOME variable the path to the Android Studio SDK
 #
 # Ubuntu example:
 # export ANDROID_AVD_HOME="/root/.android/avd"
