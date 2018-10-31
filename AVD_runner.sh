@@ -54,7 +54,7 @@ RUN_AVD="EMULATOR_PATH"
 # Ubuntu example:
 # export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
 #
-# Instruction to uncomment:
+# Instruction to uncomment if you don't have JAVA_HOME as environment variable:
 #export JAVA_HOME="JAVA_JDK_PATH"
 
 # For Windows and MacOS:
@@ -66,17 +66,16 @@ RUN_AVD="EMULATOR_PATH"
 # MacOS example: 
 # export ANDROID_HOME="/Users/<username>/Library/Android/sdk"
 #
-# Instruction to uncomment:
+# Instruction to uncomment if you don't have ANDROID_HOME as environment variable(Windows or MacOS):
 #export ANDROID_HOME="ANDROID_STUDIO_SDK_PATH"
 
 # For Linux:
-# Put in ANDROID_AVD_HOME variable the path to the
-# Android Studio SDK .ini files of emulator
+# Put in ANDROID_AVD_HOME variable the path to the Android Studio SDK
 #
 # Ubuntu example:
 # export ANDROID_AVD_HOME="/root/.android/avd"
 #
-# Instruction to uncomment:
+# Instruction to uncomment if you don't have ANDROID_AVD_HOME as environment variable(Linux):
 #export ANDROID_AVD_HOME="ANDROID_STUDIO_SDK_PATH_LINUX"
 
 
