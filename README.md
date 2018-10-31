@@ -50,25 +50,27 @@ in your environment variables you need to set the following variables:
 # Put in JAVA_HOME variable the path to the Java SDK
 #
 # Windows example:
-# JAVA_HOME="C:/Program Files/Java/jdk1.8.0_171"
+# export JAVA_HOME="C:/Program Files/Java/jdk1.8.0_171"
 #
 # MacOS example: 
-# JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home"
+# export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home"
 #
 # Ubuntu example:
-# JAVA_HOME="/usr/lib/jvm/java-8-oracle"
+# export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
 #
+# Instruction to uncomment if you don't have JAVA_HOME as environment variable:
 export JAVA_HOME="JAVA_JDK_PATH"
 
 # For Windows and MacOS:
 # Put in ANDROID_HOME variable the path to the Android Studio SDK
 #
 # Windows example:
-# ANDROID_HOME="C:/Users/<username>/AppData/Local/Android/sdk"
+# export ANDROID_HOME="C:/Users/<username>/AppData/Local/Android/sdk"
 #
 # MacOS example: 
-# ANDROID_HOME="/Users/<username>/Library/Android/sdk"
+# export ANDROID_HOME="/Users/<username>/Library/Android/sdk"
 #
+# Instruction to uncomment if you don't have ANDROID_HOME as environment variable(Windows or MacOS):
 export ANDROID_HOME="ANDROID_STUDIO_SDK_PATH"
 
 # For Linux:
@@ -76,8 +78,9 @@ export ANDROID_HOME="ANDROID_STUDIO_SDK_PATH"
 # Android Studio SDK .ini files of emulator
 #
 # Ubuntu example:
-# ANDROID_AVD_HOME="/root/.android/avd"
+# export ANDROID_AVD_HOME="/root/.android/avd"
 #
+# Instruction to uncomment if you don't have ANDROID_AVD_HOME as environment variable(Linux):
 export ANDROID_AVD_HOME="ANDROID_STUDIO_SDK_PATH_LINUX"
 ```
 
